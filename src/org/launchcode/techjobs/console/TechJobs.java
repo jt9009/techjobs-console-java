@@ -64,19 +64,7 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    printJobs(JobData.findByValue(searchField, searchTerm));
-                }
-                if (searchField.equals("core competency")) {
-                    printJobs(JobData.findByValue(searchField, searchTerm));
-                }
-                if (searchField.equals("employer")) {
-                    printJobs(JobData.findByValue(searchField, searchTerm));
-                }
-                if (searchField.equals("location")) {
-                    printJobs(JobData.findByValue(searchField, searchTerm));
-                }
-                if (searchField.equals("position type")) {
-                    printJobs(JobData.findByValue(searchField, searchTerm));
+                    printJobs(JobData.findByValue(searchTerm));
                 }
                 else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
@@ -129,17 +117,17 @@ public class TechJobs {
         if (someJobs.size() == 0) {
             System.out.println("No Results");
         }
-
         for (int i = 0; i < someJobs.size(); i++) {
             System.out.println("");
             System.out.println("*****");
 
-            for (Map.Entry<String, String> entry : someJobs.get(i).entrySet())  {
+            for (Map.Entry<String, String> entry : someJobs.get(i).entrySet()) {
                 String key = entry.getKey();
                 String value = entry.getValue();
                 System.out.println(key + ": " + value);
             }
             System.out.println("*****");
         }
+
     }
 }
